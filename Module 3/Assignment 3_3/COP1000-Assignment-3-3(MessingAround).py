@@ -13,6 +13,12 @@ year = None
 month = None
 day = None
 
+# leap years happen ever four years 
+def leap_year_feb(year):
+    if (int(year) % 4 == 0 and int(year) % 100 != 0) or (int(year) % 400 == 0):
+        return True 
+    return False
+
 # Get the year, then the month, then the day
 # housekeeping()
 
@@ -30,6 +36,14 @@ elif int(day) < MIN_DAY or int(day) > MAX_DAY: # invalid day
     validDate = False
 elif int(month) in [4,6,9,11] and day > 30: # months with only 30 days 
     validDate = False
+else:
+    if month == 2:
+        if leap_year_feb(int(year)):
+            if day > 29:
+                validDate = False # leap year
+        else:
+            if day > 28:
+                validDate = False # non leap year
 
 # Test to see if date is valid and output date and whether it is valid or not
 
