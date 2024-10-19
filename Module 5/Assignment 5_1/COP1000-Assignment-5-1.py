@@ -1,3 +1,5 @@
+# Determine the Output of the Pseudocode
+
 # pseudocode part a
 a = 1
 b = 2
